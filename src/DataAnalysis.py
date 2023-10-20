@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[9]:
-
-
 # Designing a NN comes in two parts:
 # 1. Data analysis- organise and process the data into the correct requirements of the input of the NN;
 # 2. Training- use data to improve performance of NN.
@@ -34,6 +31,9 @@ class DataAnalysis:
         names = [name for name in gaia.colnames if len(gaia[name].shape) <= 1]
         # Flattening done here
         self.gaia = gaia[names].to_pandas()
+
+    def getData(self, num):
+        return self.gaia[0:num]
 
     def numRow(self):
         return 30
@@ -66,3 +66,5 @@ class DataAnalysis:
 # analysis.printTable()
 # analysis.printPlot()
 
+
+# Convert to `.py` after `cd` into `src` via: `jupyter nbconvert --to script 'DataAnalysis.ipynb`
